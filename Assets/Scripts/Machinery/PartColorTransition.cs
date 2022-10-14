@@ -7,7 +7,7 @@ using UnityEngine;
 /// <summary>
 /// 两个纹理渐变
 /// </summary>
-public class TwoTexTransition : MonoBehaviour
+public class PartColorTransition : MonoBehaviour
 {
     private Renderer render;
 
@@ -37,7 +37,7 @@ public class TwoTexTransition : MonoBehaviour
         render.GetPropertyBlock(prop);
     }
 
-    private void OnMouseEnter()
+    /*private void OnMouseEnter()
     {
         if (!isFlash)
         {
@@ -55,7 +55,7 @@ public class TwoTexTransition : MonoBehaviour
             prop.SetFloat("value_blend", targetValue);
             render.SetPropertyBlock(prop);
         }
-    }
+    }*/
     
     /// <summary>
     /// 动画运行更新
