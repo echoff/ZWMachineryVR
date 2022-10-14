@@ -43,7 +43,7 @@ public class MachineryEntity : MonoBehaviour
     /// <summary>
     /// 零件和位置(本地坐标)
     /// </summary>
-    private Dictionary<MachineryPart, Vector3> partPosition;
+    private Dictionary<MachineryPart, Vector3> partPosition = new Dictionary<MachineryPart, Vector3>();
 
     private void Awake()
     {
