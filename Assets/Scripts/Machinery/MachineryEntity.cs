@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using com.ootii.Messages;
 using UnityEngine;
 
 /// <summary>
@@ -54,6 +55,12 @@ public class MachineryEntity : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        MessageDispatcher.AddListener("MachineryPartEndDrag",OnPartDragEnd);
+    }
+    
+
     /// <summary>
     /// 获取当前应该组装的操作
     /// </summary>
@@ -94,8 +101,8 @@ public class MachineryEntity : MonoBehaviour
     /// <summary>
     /// 某一个零件被鼠标拖拽
     /// </summary>
-    /// <param name="p">零件引用</param>
-    public void OnPartDragEnd(MachineryPart p)
+    /// <param name="msg">消息</param>
+    public void OnPartDragEnd(IMessage msg)
     {
         switch (GameManager.Instance.state)
         {
@@ -105,23 +112,30 @@ public class MachineryEntity : MonoBehaviour
             }
             case GameState.Disassemble:
             {
+                print($"current Step:{currentStep}");
+                MachineryPart p = (MachineryPart) msg.Data;               
                 var action = GetCurrentDisassembleAction();
-                if (action.partID == p.id && action.type == AssmbleActionType.Drag)
+                //验证拆卸时候拖拽距离
+                if (Vector3.SqrMagnitude(p.transform.localPosition - p.beginDragPos) > removeParteDistance)
                 {
-                    if (Vector3.SqrMagnitude(p.transform.localPosition - p.beginDragPos) > removeParteDistance)
+                    if (action.partID == p.id && action.type == AssmbleActionType.Drag)
                     {
+                        currentStep++;
                         p.gameObject.SetActive(false);
                     }
                     else
                     {
+                        //零件错误
                         //TODO:发送UI提示请求
+                        p.PartReset();
                     }
                 }
                 else
                 {
+                    //拖拽距离不足
+                    //TODO:发送UI提示请求
                     p.PartReset();
                 }
-
                 break;
             }
         }

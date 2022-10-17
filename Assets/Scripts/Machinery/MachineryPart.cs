@@ -132,7 +132,7 @@ public class MachineryPart : MonoBehaviour
         Message lMessage = new Message();
         lMessage.Type = "PartSelect";
         lMessage.Sender = this;
-        lMessage.Data = typeID;
+        lMessage.Data = typeID;//零件的编号
         lMessage.Delay = EnumMessageDelay.IMMEDIATE;
         MessageDispatcher.SendMessage(lMessage);
         //拆解状态
@@ -156,6 +156,12 @@ public class MachineryPart : MonoBehaviour
         if (isDrag)
         {
             isDrag = false;
+            Message lMessage = new Message();
+            lMessage.Type = "MachineryPartEndDrag";
+            lMessage.Sender = this;
+            lMessage.Data = this;
+            lMessage.Delay = EnumMessageDelay.IMMEDIATE;
+            MessageDispatcher.SendMessage(lMessage);
         }
     }
 

@@ -94,24 +94,33 @@ MonoBehaviour:
   - step: 8
     type: 0
     partID: 10
+  - step: 8
+    type: 0
+    partID: 101
   - step: 9
     type: 0
     partID: 9
+  - step: 9
+    type: 0
+    partID: 91
   - step: 10
     type: 0
     partID: 8
+  - step: 10
+    type: 0
+    partID: 2
   - step: 11
+    type: 0
+    partID: 1
+  - step: 11
+    type: 0
+    partID: 21
+  - step: 12
     type: 0
     partID: 7
   - step: 12
     type: 0
-    partID: 2
-  - step: 13
-    type: 0
-    partID: 1
-  - step: 14
-    type: 0
-    partID: 2
+    partID: 0
   assmbleTips: []
   disassmbleTips: []
   assmbleTexts:

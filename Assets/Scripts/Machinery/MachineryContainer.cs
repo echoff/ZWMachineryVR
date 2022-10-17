@@ -43,6 +43,35 @@ public class MachineryContainer : MonoBehaviour
     /// 是否拖拽
     /// </summary>
     private bool isDrag;
+    /// <summary>
+    /// 初始位置
+    /// </summary>
+    private Vector3 initPosition;
+    /// <summary>
+    /// 初始旋转角度1
+    /// </summary>
+    private Vector3 initRotate1;
+    /// <summary>
+    /// 初始旋转角度2
+    /// </summary>
+    private Vector3 initRotate2;
+
+    private void Start()
+    {
+        initPosition = transform.localPosition;
+        initRotate1 = transform.localEulerAngles;
+        initRotate2 = root.transform.localEulerAngles;
+    }
+
+    /// <summary>
+    /// 机械位置旋转大小重置
+    /// </summary>
+    private void MachineryContainerReset()
+    {
+        root.transform.localEulerAngles = initRotate2;
+        transform.localEulerAngles = initRotate1;
+        transform.localPosition = initPosition;
+    }
 
     private void Update()
     {
