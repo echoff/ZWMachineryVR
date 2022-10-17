@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using com.ootii.Messages;
 
 public class UI_InitoalHiddenArtifacets : MonoBehaviour, IPointerDownHandler
 {
@@ -30,7 +31,7 @@ public class UI_InitoalHiddenArtifacets : MonoBehaviour, IPointerDownHandler
     /// <summary>
     /// 当前按钮图片
     /// </summary>
-    public Image selfButton;
+    private Image selfButton;
 
 
     private void OnEnable()
@@ -60,6 +61,21 @@ public class UI_InitoalHiddenArtifacets : MonoBehaviour, IPointerDownHandler
             //selfButton.color = Color.white;
             selfButton.color = new Color(255, 255, 255, 255);
         }
+    }
+
+
+    /// <summary>
+    /// 按钮事件
+    /// </summary>
+    public void ButtonOnClick()
+    {
+        //发送消息选中零件
+        Message lMessage = new Message();
+        lMessage.Type = "UI_PartHidden";
+        lMessage.Sender = this;
+        lMessage.Data = new object[]{int.Parse(gameObject.name),bIsCheck};
+        lMessage.Delay = EnumMessageDelay.IMMEDIATE;
+        MessageDispatcher.SendMessage(lMessage);
     }
 }
 

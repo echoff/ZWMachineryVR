@@ -272,7 +272,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8207168528726911940}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2837791573900230989}
+        m_MethodName: ButtonOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2837791573900230989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,4 +302,3 @@ MonoBehaviour:
   isCheckSprites:
   - {fileID: 21300000, guid: f4bb68cce0a07e447a81fe92431e2c4a, type: 3}
   - {fileID: 21300000, guid: 7fdb11e845b6b664a8b245206d5f733c, type: 3}
-  selfButton: {fileID: 0}

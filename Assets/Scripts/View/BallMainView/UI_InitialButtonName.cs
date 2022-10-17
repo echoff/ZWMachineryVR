@@ -9,11 +9,11 @@ public class UI_InitialButtonName : MonoBehaviour
     /// <summary />球阀信息按钮
     public List<GameObject> buttons;
 
+    /// <summary />按钮名字配置
     [Header("按钮名字配置")]
     public ButtonName_OS buttonNameOS;
-
-
-    private void OnEnable()
+    
+    protected  virtual void OnEnable()
     {
         //获取所有按钮的数量
         int chirds = transform.childCount;
@@ -28,6 +28,7 @@ public class UI_InitialButtonName : MonoBehaviour
         for (int i = 0; i < chirds; i++)
         {
             buttons[i].transform.GetChild(0).GetComponent<Text>().text = buttonNameOS.names[i];
+            buttons[i].gameObject.name = i.ToString();
         }
         
     }
