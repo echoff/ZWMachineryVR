@@ -28,7 +28,7 @@ public class UI_PrincipleOfAnimationButtonEvent : MonoBehaviour
     /// <summary>
     /// 是否再次按下
     /// </summary>
-    private bool isCheck;
+    public bool isCheck;
 
     private void OnEnable()
     {
@@ -41,6 +41,7 @@ public class UI_PrincipleOfAnimationButtonEvent : MonoBehaviour
             gameObject.GetComponent<Button>().enabled = false;
             
             isCheckImage.gameObject.SetActive(false);
+            
         }
     }
 

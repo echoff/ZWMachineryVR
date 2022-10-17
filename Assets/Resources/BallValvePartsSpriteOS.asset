@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a79d129233e3849baa9ac00a251f8c, type: 3}
+  m_Name: BallValvePartsSpriteOS
+  m_EditorClassIdentifier: 
+  ballValvePartsSprites:
+  - {fileID: 21300000, guid: a416e2a4f94e5024490e2879b56dc1e4, type: 3}
+  - {fileID: 21300000, guid: 2f4557cf1b3b01547b3fb0110f53661c, type: 3}
+  - {fileID: 21300000, guid: 05097c2247c77f24f9fa7e598acaa4cf, type: 3}
+  - {fileID: 21300000, guid: 9448b85ad57124a40b0fd4ed661a0bb0, type: 3}
+  - {fileID: 21300000, guid: a7826b4500922694a97e02ad7696525b, type: 3}
+  - {fileID: 21300000, guid: 021dfdfe60ec9d642b53484caead1445, type: 3}
+  - {fileID: 21300000, guid: 70c9855c58e0ba1488810b6ffc2d170d, type: 3}
+  - {fileID: 21300000, guid: c446644fdf31c9f4eadb4153acded4e2, type: 3}
+  - {fileID: 21300000, guid: 2f3e239a09f631845bf2b92c9c4bfbfa, type: 3}
+  - {fileID: 21300000, guid: 19122c26459889c48935590da0e23588, type: 3}
+  - {fileID: 21300000, guid: 2f9ca0ee85b2274408351c32e5611727, type: 3}
+  - {fileID: 21300000, guid: ec85e9caf4b323045a8762c60785c587, type: 3}
+  - {fileID: 21300000, guid: 969b84ef68374f2428a8a2623b94100f, type: 3}
+  - {fileID: 21300000, guid: bfca2baf874654048addf1f57756d56c, type: 3}
+  - {fileID: 21300000, guid: d23c032ecf25b57468406de8c463c292, type: 3}
