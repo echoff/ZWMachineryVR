@@ -34,10 +34,13 @@ public class UI_PrincipleOfAnimationButtonEvent : MonoBehaviour
     {
         isCheck = true;
 
+        //初始化不可点击按钮
         if (gameObject.name.Equals("1") || gameObject.name.Equals("3") || gameObject.name.Equals("5") ||
             gameObject.name.Equals("11") || gameObject.name.Equals("13") || gameObject.name.Equals("14"))
         {
             gameObject.GetComponent<Button>().enabled = false;
+            
+            isCheckImage.gameObject.SetActive(false);
         }
     }
 
