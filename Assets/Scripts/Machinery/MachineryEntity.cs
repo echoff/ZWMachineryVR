@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using com.ootii.Messages;
 using UnityEngine;
 
@@ -42,17 +43,24 @@ public class MachineryEntity : MonoBehaviour
     [HideInInspector] public int currentStep;
 
     /// <summary>
+    /// 动画系统
+    /// </summary>
+    private Animator animator;
+
+    /// <summary>
     /// 零件和位置(本地坐标)
     /// </summary>
     private Dictionary<MachineryPart, Vector3> partPosition = new Dictionary<MachineryPart, Vector3>();
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         parts = GetComponentsInChildren<MachineryPart>();
         foreach (MachineryPart lPart in parts)
         {
             partPosition.Add(lPart, lPart.gameObject.transform.localPosition);
         }
+        
     }
 
     private void Start()
@@ -77,6 +85,47 @@ public class MachineryEntity : MonoBehaviour
     public AssmbleAction GetCurrentDisassembleAction()
     {
         return data.disassembleOrder[currentStep];
+    }
+    /// <summary>
+    /// 显示或隐藏某个零件
+    /// </summary>
+    /// <param name="msg">消息</param>
+    private void OnPartHideOrShow(IMessage msg)
+    {
+        object[] data = (object[])msg.Data;
+        int typeID = (int) data[0];
+        bool hide = (bool) data[1];
+
+        List<GameObject> part = FindPartWithTypeID(typeID);
+        foreach (var lGameObject in part)
+        {
+            lGameObject.SetActive(!hide);
+        }
+    }
+    /// <summary>
+    /// 通过类型ID找到零件
+    /// </summary>
+    /// <param name="typeID">类型ID</param>
+    /// <returns>零件</returns>
+    private List<GameObject> FindPartWithTypeID(int typeID)
+    {
+        List<GameObject> res = new List<GameObject>();
+        foreach (var item in parts)
+        {
+            if (item.typeID == typeID)
+            {
+                res.Add(item.gameObject);
+            }
+        }
+
+        return res;
+    }
+    /// <summary>
+    /// 暂停播放动画
+    /// </summary>
+    private void PauseAnmin()
+    {
+        animator.speed = animator.speed == 1 ? 0 : 1;
     }
 
     /// <summary>

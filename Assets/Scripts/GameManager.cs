@@ -5,14 +5,15 @@ using UnityEngine.UI;
 
 public class GameManager : SingletonMonoBase<GameManager>
 {
-    public int[] roder = { };
     /// <summary>
     /// 游戏状态
     /// </summary>
+    [Header("游戏状态")]
     public GameState state;
     /// <summary>
-    /// 光标
+    /// 鼠标指针
     /// </summary>
+    [Header("鼠标指针")]
     public Image cursorImage;
 
 }
